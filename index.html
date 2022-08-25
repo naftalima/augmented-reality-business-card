@@ -1,0 +1,67 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- AR engine that updates the visibility and positions of a-entity -->
+
+    <!--  mindar and aframe library hosted in cdn to build a web AR application! -->
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+
+  </head>
+  <body>
+    <a-scene 
+      mindar-image="imageTargetSrc: ./targets.mind;" 
+      color-space="sRGB" 
+      renderer="colorManagement: true, physicallyCorrectLights" 
+      vr-mode-ui="enabled: false" 
+      device-orientation-permission-ui="enabled: false"
+    >
+    <!-- <a-scene 
+      mindar-image="imageTargetSrc: ./targets.mind;" 
+      vr-mode-ui="enabled: false" 
+      device-orientation-permission-ui="enabled: false"
+    > -->
+      <!-- Property  mindar-image :  where is the compiled .mind file -->
+      
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <!-- Consume your camera feed, then detect, track the target images and update the visibility and positions of this a-entity. -->
+
+      <a-assets>
+        <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/examples/image-tracking/assets/card-example/card.png" />
+        <a-asset-item id="bearModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
+        <a-asset-item id="raccoonModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/examples/image-tracking/assets/band-example/raccoon/scene.gltf"></a-asset-item>
+        <!-- <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item> -->
+      </a-assets>
+
+      <!-- <a-entity mindar-image-target="targetIndex: 0"> -->
+        <!-- Property mindar-image-target: tells the engine to detect and track a particular image target. 
+             The targetIndex is always 0, if your targets.mind contains only a single image. -->
+
+        <!-- Object that shows on top of the target image. -->
+        <!-- width=1 means the width is the same as the target image -->
+
+        <!-- Minimal: just a blue plane. -->
+        <!-- <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
+        
+        <!-- Basic -->
+        <!-- <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
+        <!-- <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-gltf-model> -->
+              
+        <!-- </a-entity>  -->
+        
+      <!-- Multi-Targets -->
+      <!-- two <a-entity>, with different targetIndex. -->
+        <a-entity mindar-image-target="targetIndex: 0">
+          <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#raccoonModel" animation-mixer>
+        </a-entity>
+        <a-entity mindar-image-target="targetIndex: 1">
+          <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.05 0.05 0.05" src="#bearModel" animation-mixer>
+        </a-entity>
+
+
+    </a-scene>
+  </body>
+</html>
