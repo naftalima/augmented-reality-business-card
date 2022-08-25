@@ -1,0 +1,11 @@
+Model Information:
+* title:	POP CAT
+* source:	https://sketchfab.com/3d-models/pop-cat-2d1c8b8514684b0a8d1b8203caa01a95
+* author:	rukitu (https://sketchfab.com/rukitu)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "POP CAT" (https://sketchfab.com/3d-models/pop-cat-2d1c8b8514684b0a8d1b8203caa01a95) by rukitu (https://sketchfab.com/rukitu) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
